@@ -10,7 +10,7 @@ namespace UpdateHelper {
         private static void Main(string[] args) {
             try {
                 Thread.Sleep(1000);
-                if(args.Length != 3)
+                if(args.Length < 3)
                     Usage();
                 if(!IsNumeric(args[0]))
                     KillApp(args[0]);
@@ -21,7 +21,12 @@ namespace UpdateHelper {
                 else if(File.Exists(args[2]))
                     File.Delete(args[2]);
                 File.Move(args[1], args[2]);
-                Process.Start(args[2]);
+                var newargs = "";
+                if(args.Length > 3) {
+                    for(var i = 3; i < args.Length; i++)
+                        newargs += string.Format(" \"{0}\"", args[i]);
+                }
+                Process.Start(args[2], newargs);
                 Environment.Exit(0);
             }
             catch(Exception ex) {
