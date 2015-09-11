@@ -35,7 +35,7 @@ namespace UpdateHelper {
         }
 
         private static void Usage() {
-            MessageBox.Show(string.Format("Usage: {0} [ProcessName/PID] [New Executable Path] [Old Executable Path]", Path.GetFileName(Application.ExecutablePath)), "Bad arguments to Swizzy's Update helper!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            MessageBox.Show(string.Format("Usage: {0} [ProcessName/PID] [New Executable Path] [Old Executable Path] <Optional: Arguments passed back to the new executable>", Path.GetFileName(Application.ExecutablePath)), "Bad arguments to Swizzy's Update helper!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             Environment.Exit(1);
         }
 
